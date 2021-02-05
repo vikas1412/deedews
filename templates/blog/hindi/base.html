@@ -1,0 +1,203 @@
+{% extends 'base_page.html' %}
+
+{% load static %}
+
+{% block style %}
+.logo-hindi{
+    opacity: 1.0;
+}
+.logo-english{
+    opacity: 0.50;
+}
+.logo-english:hover{
+    opacity: 1.0;
+}
+.logo-hindi:hover{
+    opacity: 1.0;
+}
+{% block sub_style %}{% endblock %}
+
+{% endblock style %}
+
+
+{% block body %}
+{% endblock %}
+
+{% block sidebar %}
+<div id="sidebar" class="penci-sidebar-content style-2 pcalign-left penci-sticky-sidebar">
+            <div class="theiaStickySidebar">
+                <aside id="penci_social_widget-1" class="widget penci_social_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Social Networks</span></h4>
+                    <div class="widget-social pc_aligncenter show-text remove-circle"><a
+                            href="https://www.facebook.com/PenciDesign" rel="nofollow" target="_blank"><i
+                            class="fa fa-facebook" style="font-size: 14px"></i><span
+                            style="font-size: 14px">Facebook</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-twitter" style="font-size: 14px"></i><span
+                            style="font-size: 14px">Twitter</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-google-plus" style="font-size: 14px"></i><span
+                            style="font-size: 14px">Google +</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-instagram" style="font-size: 14px"></i><span
+                            style="font-size: 14px">Instagram</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-linkedin" style="font-size: 14px"></i><span
+                            style="font-size: 14px">Linkedin</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-rss" style="font-size: 14px"></i><span style="font-size: 14px">RSS</span></a>
+                    </div>
+                </aside>
+
+                <aside id="penci_popular_news_widget-1" class="widget penci_popular_news_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Popular Posts</span></h4>
+                    <ul id="penci-popularwg-8054" class="side-newsfeed display-order-numbers">
+                        {% for post in common.0 %}
+                        {% if forloop.counter == 1 %}
+                        <li class="penci-feed featured-news"><span class="order-border-number"> <span
+                                class="number-post">1</span> </span>
+                            <div class="side-item">
+                                <div class="side-image"><a class="penci-image-holder penci-lazy" rel="bookmark"
+                                                           data-src="{{post.post_image.url}}"
+                                                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                                           title="{{post.title_hindi}}"></a>
+                                </div>
+                                <div class="side-item-text"><h4 class="side-title-post"><a
+                                        href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                        rel="bookmark"
+                                        title="\"> {{post.title_hindi}}</a></h4> <span
+                                        class="side-item-meta"><time class="entry-date published"
+                                                                     datetime="2017-07-11T03:26:07+00:00">{{post.timestamp}}</time></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+
+
+                        {% for post in common.0 %}
+                        {% if forloop.counter > 1 %}
+                        <li class="penci-feed"><span class="order-border-number"> <span
+                                class="number-post">{{forloop.counter}}</span> </span>
+                            <div class="side-item">
+                                <div class="side-image">
+                                    {% if post.post_image %}
+                                    <a class="penci-image-holder penci-lazy small-fix-size"
+                                       rel="bookmark"
+                                       data-src="{{post.post_image.url}}"
+                                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                       title="{{post.title_hindi}}"></a>
+                                    {% else %}
+                                    <a class="penci-image-holder penci-lazy small-fix-size"
+                                       rel="bookmark"
+                                       data-src="{% static 'images/post/default-post.png' %}"
+                                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                       title="{{post.title_hindi}}"></a>
+                                    {% endif %}
+                                </div>
+                                <div class="side-item-text"><h4 class="side-title-post"><a
+                                        href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                        rel="bookmark" title="{{post.title_hindi}}">
+                                    {{post.title_hindi|truncatechars:'70'}}</a></h4> <span
+                                        class="side-item-meta"><time class="entry-date published"
+                                                                     datetime="2017-07-11T03:26:25+00:00">{{post.timestamp}}</time></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </aside>
+                <aside id="penci_latest_tweets_widget-1" class="widget penci_latest_tweets_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Tweets</span></h4>
+                    <div class="penci-tweets-widget-content "><span class="icon-tweets"><i
+                            class="fa fa-twitter"></i></span>
+                        <div class="penci-owl-carousel penci-owl-carousel-slider penci-tweets-slider" data-dots="true"
+                             data-nav="false" data-auto="true">
+                            <div class="penci-tweet">
+                                <div class="tweet-text"> 💥💥💥Our new Wordpress theme PenNews just released - It's
+                                    biggest theme ever we've build, use it for any purpose. Now… <a
+                                            href="#" target="_blank">https://t.co/1itu4m7Nhv</a>
+                                </div>
+                                <p class="tweet-date">03-Apr-2018</p>
+                                <div class="tweet-intents">
+                                    <div class="tweet-intents-inner"><span><a target="_blank" class="reply"
+                                                                              href="#">Reply</a></span>
+                                        <span><a target="_blank" class="retweet"
+                                                 href="#">Retweet</a></span>
+                                        <span><a target="_blank" class="favorite"
+                                                 href="#">Favorite</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="penci-tweet">
+                                <div class="tweet-text"> Our new Wordpress Theme #PenShop just released - For anyone
+                                    want to make a #Ecommerce site, It's great for you ;) <a
+                                            href="#" target="_blank">https://t.co/XkwyXswYb2</a>
+                                </div>
+                                <p class="tweet-date">18-Oct-2017</p>
+                                <div class="tweet-intents">
+                                    <div class="tweet-intents-inner"><span><a target="_blank" class="reply"
+                                                                              href="#">Reply</a></span>
+                                        <span><a target="_blank" class="retweet"
+                                                 href="#">Retweet</a></span>
+                                        <span><a target="_blank" class="favorite"
+                                                 href="#">Favorite</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="penci-tweet">
+                                <div class="tweet-text"> Our new theme #Flowing just released. It's #bold, #creative,
+                                    #clean and awesome. You will love it, come take a look! <a
+                                            href="#" target="_blank">https://t.co/YoiGcxKUn0</a>
+                                </div>
+                                <p class="tweet-date">11-Jul-2017</p>
+                                <div class="tweet-intents">
+                                    <div class="tweet-intents-inner"><span><a target="_blank" class="reply"
+                                                                              href="#">Reply</a></span>
+                                        <span><a target="_blank" class="retweet"
+                                                 href="#">Retweet</a></span>
+                                        <span><a target="_blank" class="favorite"
+                                                 href="#">Favorite</a></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+                <aside id="penci_latest_news_widget-1" class="widget penci_latest_news_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Recent Posts</span></h4>
+                    <ul id="penci-latestwg-4672" class="side-newsfeed penci-feed-2columns penci-2columns-feed">
+
+                        {% for post in common.1 %}
+                        <li class="penci-feed">
+                            <div class="side-item">
+                                <div class="side-image"><a class="penci-image-holder penci-lazy small-fix-size"
+                                                           rel="bookmark"
+                                                           data-src="{{post.post_image.url}}"
+                                                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                                           title="{{post.title_hindi}}"></a>
+                                </div>
+                                <div class="side-item-text"><h4 class="side-title-post"><a
+                                        href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                        rel="bookmark"
+                                        title="{{post.title_hindi}}">{{post.title_hindi|truncatechars:'34'}}</a></h4> <span
+                                        class="side-item-meta"><time class="entry-date published"
+                                                                     datetime="{{post.timestamp}}">{{post.timestamp}}</time></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </aside>
+                <aside id="categories-2" class="widget widget_categories"><h4 class="widget-title penci-border-arrow">
+                    <span class="inner-arrow">Categories</span></h4>
+                    <ul>
+
+                        {% for cat,num in common.2.items %}
+                        {% if num != 0 %}
+                        <li class="cat-item cat-item-91"><a
+                                href="{% url 'hindi-article-by-category' cat %}">{{cat}}
+                            <span class="category-item-count">({{num}})</span></a></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                </aside>
+            </div>
+        </div>
+{% endblock %}

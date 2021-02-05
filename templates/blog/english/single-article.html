@@ -1,0 +1,384 @@
+{% extends 'blog/english/base.html' %}
+
+{% load static %}
+
+
+{% block body %}
+<div class="theiaStickySidebar">
+    <article id="post-874" class="post type-post status-publish hentry">
+        <div class="header-standard header-classic single-header">
+            <div class="penci-standard-cat"><span class="cat"><a class="penci-cat-name"
+                                                                 href="../category/editors-picks/index.html"
+                                                                 rel="category tag">Editor's Picks</a><a
+                    class="penci-cat-name" href="../category/fitness/index.html"
+                    rel="category tag">{{single_article.category}}</a></span></div>
+            <h1 class="post-title single-post-title entry-title">{{single_article.title}}</h1>
+
+            <span><i class="fa fa-eye"></i> {{views}}</span>
+
+
+            <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                    class="url fn n" href="#">Richard Roe</a></span>
+                <time class="entry-date published" datetime="2017-07-11T03:19:02+00:00">July 11, 2017</time>
+            </div>
+            <div class="post-box-meta-single"><span class="author-post byline"><span class="author vcard">written by <a
+                    class="author-url url fn n"
+                    href="#"></a></span></span>
+                <span><time class="entry-date published"
+                            datetime="2017-07-11T03:19:02+00:00">{{single_article.timestamp|date:'N j o'}}</time></span></div>
+        </div>
+        <div class="post-image">
+            {% if single_article.post_image %}
+            <a href="{{single_article.post_image.url}}"
+                data-rel="penci-gallery-image-content"> <img
+                class="attachment-penci-full-thumb size-penci-full-thumb penci-lazy wp-post-image"
+                src="{{single_article.post_image.url}}"
+                alt="{{single_article.title}}" title="fitness"
+                data-src="{{single_article.post_image.url}}">
+            </a>
+            {% else %}
+            <a href="{% static 'images/default-post.png' %}" data-rel="penci-gallery-image-content"> <img
+                class="attachment-penci-full-thumb size-penci-full-thumb penci-lazy wp-post-image"
+                src="{% static 'images/default-post.png' %}"
+                alt="{{single_article.title}}" title="fitness"
+                data-src="{% static 'images/default-post.png' %}">
+            </a>
+
+            {% endif %}
+        </div>
+        <div class="post-entry blockquote-style-2">
+            <div class="inner-post-entry entry-content">
+                <p>{{single_article.content|safe}}</p>
+
+                <div class="penci-single-link-pages"></div>
+                <div class="post-tags"><a href="../tag/fitness/index.html" rel="tag">fitness</a><a
+                        href="../tag/news/index.html" rel="tag">news</a></div>
+            </div>
+        </div>
+        <div class="tags-share-box center-box"><span class="single-comment-o"><i
+                class="fa fa-comment-o"></i>3 comments</span>
+            <div class="post-share"><span class="count-number-like">17</span><a
+                    class="penci-post-like single-like-button liked" data-post_id="874" title="Unlike"
+                    data-like="Like" data-unlike="Unlike"><i class="fa fa-heart-o"></i></a>
+                <div class="list-posts-share"><a target="_blank" rel="nofollow"
+                                                 href="https://www.facebook.com/sharer/sharer.php?u=http://soledad.pencidesign.com/soledad-magazine/is-running-ability-down-to-effort-or-dna-and-can-it-be-proved/"><i
+                        class="fa fa-facebook"></i><span class="dt-share">Facebook</span></a><a
+                        target="_blank" rel="nofollow"
+                        href="https://twitter.com/intent/tweet?text=Check%20out%20this%20article:%20Is%20running%20ability%20down%20to%20effort%20or%20DNA?%20And%20can%20it%20be%20proved?%20-%20http://soledad.pencidesign.com/soledad-magazine/is-running-ability-down-to-effort-or-dna-and-can-it-be-proved/"><i
+                        class="fa fa-twitter"></i><span class="dt-share">Twitter</span></a><a
+                        target="_blank" rel="nofollow"
+                        href="https://plus.google.com/share?url=http://soledad.pencidesign.com/soledad-magazine/is-running-ability-down-to-effort-or-dna-and-can-it-be-proved/"><i
+                        class="fa fa-google-plus"></i><span class="dt-share">Google +</span></a><a
+                        data-pin-do="none" rel="nofollow noreferrer noopener"
+                        onclick="var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','../../../assets.pinterest.com/js/pinmarklet2a3b.js?r='+Math.random()*99999999);document.body.appendChild(e);"><i
+                        class="fa fa-pinterest"></i><span class="dt-share">Pinterest</span></a></div>
+            </div>
+        </div>
+        <div class="post-author">
+            <div class="author-img"><img alt='Richard Roe'
+                                         src='../../../max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/Richard-Roe_avatar_1499809941-100x100.jpg'
+                                         class='avatar avatar-100 photo' height='100' width='100'/></div>
+            <div class="author-content"><h5><a href="../author/magazine/index.html"
+                                               title="Posts by Richard Roe" rel="author">Richard Roe</a>
+            </h5>
+                <p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus
+                    elementum semper nisi. Aenean vulputate eleifend tellus.</p> <a target="_blank"
+                                                                                    class="author-social"
+                                                                                    href="http://pencidesign.com/"><i
+                        class="fa fa-globe"></i></a> <a target="_blank" class="author-social"
+                                                        href="http://facebook.com/pencidesign"><i
+                        class="fa fa-facebook"></i></a> <a target="_blank" class="author-social"
+                                                           href="http://twitter.com/pencidesign"><i
+                        class="fa fa-twitter"></i></a> <a target="_blank" class="author-social"
+                                                          href="http://plus.google.com/pencidesign?rel=author"><i
+                        class="fa fa-google-plus"></i></a> <a target="_blank" class="author-social"
+                                                              href="http://instagram.com/pencidesign"><i
+                        class="fa fa-instagram"></i></a> <a target="_blank" class="author-social"
+                                                            href="http://pinterest.com/pencidesign"><i
+                        class="fa fa-pinterest"></i></a> <a target="_blank" class="author-social"
+                                                            href="http://pencidesign.tumblr.com/"><i
+                        class="fa fa-tumblr"></i></a></div>
+        </div>
+        <div class="penci-flag-rlt-popup"></div>
+        <div class="post-pagination">
+            <div class="prev-post">
+                <div class="prev-post-inner">
+                    <div class="prev-post-title"><span>previous post</span></div>
+                    <a href="../snowday-food-truck-gives-incarcerated-youth-a-second-chance/index.html">
+                        <div class="pagi-text"><h5 class="prev-title">Snowday Food Truck Gives Incarcerated
+                            Youth a Second Chance</h5></div>
+                    </a></div>
+            </div>
+            <div class="next-post">
+                <div class="next-post-inner">
+                    <div class="prev-post-title next-post-title"><span>next post</span></div>
+                    <a href="../5-fitness-stars-top-advice-on-how-to-start-working-out/index.html">
+                        <div class="pagi-text"><h5 class="next-title">5 Fitness Stars&#8217; Top Advice on
+                            How to Start Working Out</h5></div>
+                    </a></div>
+            </div>
+        </div>
+        <div class="post-related">
+            <div class="post-title-box"><h4 class="post-box-title">Related Articles</h4></div>
+            <div class="penci-owl-carousel penci-owl-carousel-slider penci-related-carousel"
+                 data-lazy="true" data-item="3" data-desktop="3" data-tablet="2" data-tabsmall="2"
+                 data-auto="false" data-speed="300" data-dots="true">
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/cardio-585x390.jpg"
+                                             href="../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html"
+                                             title="Fitness Tips | 5 Best Cardio Workout for a Healthy Heart"> </a>
+                    <h3><a href="../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html">Fitness
+                        Tips | 5 Best Cardio Workout for...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:26:25+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured1-585x390.jpg"
+                                             href="../holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/index.html"
+                                             title="Travel Guide Europe’s hidden coasts: the Deep Mani, Greece"> </a>
+                    <h3>
+                        <a href="../holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/index.html">Travel
+                            Guide Europe’s hidden coasts: the Deep Mani,...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:25:50+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured2-585x390.jpg"
+                                             href="../the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/index.html"
+                                             title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion"> </a>
+                    <h3>
+                        <a href="../the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/index.html">The
+                            Head of Design at Ikea on “Sampling”...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:25:16+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/business-585x390.jpg"
+                                             href="../5-interview-questions-you-should-always-be-prepared-to-answer/index.html"
+                                             title="5 Interview Questions You Should Always Be Prepared To Answer"> </a>
+                    <h3>
+                        <a href="../5-interview-questions-you-should-always-be-prepared-to-answer/index.html">5
+                            Interview Questions You Should Always Be Prepared...</a></h3> <span
+                            class="date"><time class="entry-date published"
+                                               datetime="2017-07-11T03:24:44+00:00">July 11, 2017</time></span>
+                </div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/fitness-couple-585x390.jpg"
+                                             href="../is-fitness-fashion-creating-a-barrier-to-getting-exercise/index.html"
+                                             title="Is fitness fashion creating a barrier to getting exercise?"> </a>
+                    <h3><a href="../is-fitness-fashion-creating-a-barrier-to-getting-exercise/index.html">Is
+                        fitness fashion creating a barrier to getting...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:24:10+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured4-585x390.jpg"
+                                             href="../destinations-the-11-most-beautiful-beach-towns-in-the-world/index.html"
+                                             title="The 11 Most Beautiful Beach Towns In The World"> </a>
+                    <h3><a href="../destinations-the-11-most-beautiful-beach-towns-in-the-world/index.html">The
+                        11 Most Beautiful Beach Towns In The...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:23:02+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/food-featured-585x390.jpg"
+                                             href="../25-reasons-to-visit-marylands-eastern-shore-now/index.html"
+                                             title="25 Reasons to Visit Maryland’s Eastern Shore Now"> </a>
+                    <h3><a href="../25-reasons-to-visit-marylands-eastern-shore-now/index.html">25 Reasons
+                        to Visit Maryland’s Eastern Shore Now</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:22:18+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/fashion-kids-585x390.jpg"
+                                             href="../suri-cruises-city-cab-style-is-all-about-girly-girl-style/index.html"
+                                             title="Suri Cruise’s City Cab Style Is All About Girly-Girl Style"> </a>
+                    <h3><a href="../suri-cruises-city-cab-style-is-all-about-girly-girl-style/index.html">Suri
+                        Cruise’s City Cab Style Is All About...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:21:42+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/business-2-585x390.jpg"
+                                             href="../a-ski-town-greenhouse-takes-local-produce-to-another-level/index.html"
+                                             title="A Ski Town Greenhouse Takes Local Produce to Another Level"> </a>
+                    <h3><a href="../a-ski-town-greenhouse-takes-local-produce-to-another-level/index.html">A
+                        Ski Town Greenhouse Takes Local Produce to...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:20:28+00:00">July 11, 2017</time></span></div>
+                <div class="item-related"><a class="related-thumb penci-image-holder owl-lazy"
+                                             data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/workout-585x390.jpg"
+                                             href="../5-fitness-stars-top-advice-on-how-to-start-working-out/index.html"
+                                             title="5 Fitness Stars&#8217; Top Advice on How to Start Working Out"> </a>
+                    <h3><a href="../5-fitness-stars-top-advice-on-how-to-start-working-out/index.html">5
+                        Fitness Stars&#8217; Top Advice on How to...</a></h3> <span class="date"><time
+                            class="entry-date published"
+                            datetime="2017-07-11T03:19:18+00:00">July 11, 2017</time></span></div>
+            </div>
+        </div>
+        <div class="penci-flag-rlt-popup"></div>
+        <div class="post-comments" id="comments">
+            <div class="post-title-box"><h4 class="post-box-title">3 comments</h4></div>
+            <div class='comments'>
+                <div class="comment byuser comment-author-magazine bypostauthor even thread-even depth-1"
+                     id="comment-141" itemprop="" itemscope="itemscope"
+                     itemtype="http://schema.org/UserComments">
+                    <meta itemprop="discusses"
+                          content="Is running ability down to effort or DNA? And can it be proved?"/>
+                    <link itemprop="url" href="#comment-141">
+                    <div class="thecomment">
+                        <div class="author-img"><img alt='Richard Roe'
+                                                     src='../../../max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/Richard-Roe_avatar_1499809941-100x100.jpg'
+                                                     class='avatar avatar-100 photo' height='100'
+                                                     width='100'/></div>
+                        <div class="comment-text"><span class="author" itemprop="creator"
+                                                        itemtype="http://schema.org/Person"><span
+                                itemprop="name"><a href='http://pencidesign.com/' rel='external nofollow'
+                                                   class='url'>Richard Roe</a></span></span> <span
+                                class="date" datetime="2017-07-11T22:03:14+00:00"
+                                title="Tuesday, July 11, 2017, 10:03 pm" itemprop="commentTime"><i
+                                class="fa fa-clock-o"></i>July 11, 2017 - 10:03 pm</span>
+                            <div class="comment-content" itemprop="commentText"><p>Et harum quidem rerum
+                                facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est
+                                eligendi optio cumque nihil impedit quo minus id quod maxime placeat
+                                facere.</p></div>
+                            <span class="reply"> <a rel='nofollow' class='comment-reply-link'
+                                                    href='indexc358.html?replytocom=141#respond'
+                                                    onclick='return addComment.moveForm( "comment-141", "141", "respond", "874" )'
+                                                    aria-label='Reply to Richard Roe'>Reply</a> </span>
+                        </div>
+                    </div>
+                    <div class="comment byuser comment-author-magazine bypostauthor odd alt depth-2"
+                         id="comment-146" itemprop="" itemscope="itemscope"
+                         itemtype="http://schema.org/UserComments">
+                        <meta itemprop="discusses"
+                              content="Is running ability down to effort or DNA? And can it be proved?"/>
+                        <link itemprop="url" href="#comment-146">
+                        <div class="thecomment">
+                            <div class="author-img"><img alt='Richard Roe'
+                                                         src='../../../max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/Richard-Roe_avatar_1499809941-100x100.jpg'
+                                                         class='avatar avatar-100 photo' height='100'
+                                                         width='100'/></div>
+                            <div class="comment-text"><span class="author" itemprop="creator"
+                                                            itemtype="http://schema.org/Person"><span
+                                    itemprop="name"><a href='http://pencidesign.com/'
+                                                       rel='external nofollow'
+                                                       class='url'>Richard Roe</a></span></span> <span
+                                    class="date" datetime="2017-07-11T22:03:34+00:00"
+                                    title="Tuesday, July 11, 2017, 10:03 pm" itemprop="commentTime"><i
+                                    class="fa fa-clock-o"></i>July 11, 2017 - 10:03 pm</span>
+                                <div class="comment-content" itemprop="commentText"><p>Quis autem vel eum
+                                    iure reprehenderit qui in ea voluptate velit esse quam nihil.</p></div>
+                                <span class="reply"> <a rel='nofollow' class='comment-reply-link'
+                                                        href='index1401.html?replytocom=146#respond'
+                                                        onclick='return addComment.moveForm( "comment-146", "146", "respond", "874" )'
+                                                        aria-label='Reply to Richard Roe'>Reply</a> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment byuser comment-author-magazine bypostauthor even thread-odd thread-alt depth-1"
+                     id="comment-151" itemprop="" itemscope="itemscope"
+                     itemtype="http://schema.org/UserComments">
+                    <meta itemprop="discusses"
+                          content="Is running ability down to effort or DNA? And can it be proved?"/>
+                    <link itemprop="url" href="#comment-151">
+                    <div class="thecomment">
+                        <div class="author-img"><img alt='Richard Roe'
+                                                     src='../../../max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/Richard-Roe_avatar_1499809941-100x100.jpg'
+                                                     class='avatar avatar-100 photo' height='100'
+                                                     width='100'/></div>
+                        <div class="comment-text"><span class="author" itemprop="creator"
+                                                        itemtype="http://schema.org/Person"><span
+                                itemprop="name"><a href='http://pencidesign.com/' rel='external nofollow'
+                                                   class='url'>Richard Roe</a></span></span> <span
+                                class="date" datetime="2017-07-11T22:03:50+00:00"
+                                title="Tuesday, July 11, 2017, 10:03 pm" itemprop="commentTime"><i
+                                class="fa fa-clock-o"></i>July 11, 2017 - 10:03 pm</span>
+                            <div class="comment-content" itemprop="commentText"><p>Neque porro quisquam est,
+                                qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia
+                                non numquam eius modi tempora incidunt ut labore.</p></div>
+                            <span class="reply"> <a rel='nofollow' class='comment-reply-link'
+                                                    href='index2c01.html?replytocom=151#respond'
+                                                    onclick='return addComment.moveForm( "comment-151", "151", "respond", "874" )'
+                                                    aria-label='Reply to Richard Roe'>Reply</a> </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id='comments_pagination'></div>
+            <div id="respond" class="comment-respond"><h3 id="reply-title" class="comment-reply-title">
+                <span>Leave a Comment</span> <small><a rel="nofollow" id="cancel-comment-reply-link"
+                                                       href="index.html#respond" style="display:none;">Cancel
+                Reply</a></small></h3>
+                <form action="http://soledad.pencidesign.com/soledad-magazine/wp-comments-post.php"
+                      method="post" id="commentform" class="comment-form"><p class="comment-form-comment">
+                                <textarea id="comment" name="comment" cols="45" rows="8" placeholder="Your Comment"
+                                          aria-required="true"></textarea></p>
+                    <p class="comment-form-author"><input id="author" name="author" type="text" value=""
+                                                          placeholder="Name*" size="30"
+                                                          aria-required='true'/></p>
+                    <p class="comment-form-email"><input id="email" name="email" type="text" value=""
+                                                         placeholder="Email*" size="30"
+                                                         aria-required='true'/></p>
+                    <p class="comment-form-url"><input id="url" name="url" type="text" value=""
+                                                       placeholder="Website" size="30"/></p>
+                    <p class="comment-form-cookies-consent"><input id="wp-comment-cookies-consent"
+                                                                   name="wp-comment-cookies-consent"
+                                                                   type="checkbox" value="yes"/><span
+                            class="comment-form-cookies-text" for="wp-comment-cookies-consent">Save my name, email, and website in this browser for the next time I comment.</span>
+                    </p>
+                    <p class="form-submit"><input name="submit" type="submit" id="submit" class="submit"
+                                                  value="Submit"/> <input type='hidden'
+                                                                          name='comment_post_ID' value='874'
+                                                                          id='comment_post_ID'/> <input
+                            type='hidden' name='comment_parent' id='comment_parent' value='0'/></p></form>
+            </div>
+        </div>
+        <div class="penci-flag-rlt-popup"></div>
+    </article>
+</div>
+{% endblock body %}
+
+{% block readAlso %}
+<aside class="penci-rlt-popup penci-rltpopup-left"><h3 class="rtlpopup-heading">Read also<a
+        class="penci-close-rltpopup">x<span></span><span></span></a></h3>
+    <div class="penci-rtlpopup-content">
+        <div class="rltpopup-item" style="transition-delay: 400ms; -webkit-transition-delay: 400ms;">
+            <div class="rltpopup-item-inner">
+                <figure class="rltpopup-thumbnail"><a class="rltpopup-thumb penci-image-holder penci-lazy"
+                                                      data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/cardio-263x175.jpg"
+                                                      href="../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html"
+                                                      title="Fitness Tips | 5 Best Cardio Workout for a Healthy Heart"></a>
+                </figure>
+                <div class="rltpopup-meta"><h4><a class="rltpopup-title"
+                                                  href="../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html">Fitness
+                    Tips | 5 Best Cardio Workout...</a></h4> <span class="date"><time class="entry-date published"
+                                                                                      datetime="2017-07-11T03:26:25+00:00">July 11, 2017</time></span>
+                </div>
+            </div>
+        </div>
+        <div class="rltpopup-item" style="transition-delay: 480ms; -webkit-transition-delay: 480ms;">
+            <div class="rltpopup-item-inner">
+                <figure class="rltpopup-thumbnail"><a class="rltpopup-thumb penci-image-holder penci-lazy"
+                                                      data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured1-263x175.jpg"
+                                                      href="../holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/index.html"
+                                                      title="Travel Guide Europe’s hidden coasts: the Deep Mani, Greece"></a>
+                </figure>
+                <div class="rltpopup-meta"><h4><a class="rltpopup-title"
+                                                  href="../holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/index.html">Travel
+                    Guide Europe’s hidden coasts: the Deep...</a></h4> <span class="date"><time
+                        class="entry-date published" datetime="2017-07-11T03:25:50+00:00">July 11, 2017</time></span>
+                </div>
+            </div>
+        </div>
+        <div class="rltpopup-item" style="transition-delay: 560ms; -webkit-transition-delay: 560ms;">
+            <div class="rltpopup-item-inner">
+                <figure class="rltpopup-thumbnail"><a class="rltpopup-thumb penci-image-holder penci-lazy"
+                                                      data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured2-263x175.jpg"
+                                                      href="../the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/index.html"
+                                                      title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion"></a>
+                </figure>
+                <div class="rltpopup-meta"><h4><a class="rltpopup-title"
+                                                  href="../the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/index.html">The
+                    Head of Design at Ikea on...</a></h4> <span class="date"><time class="entry-date published"
+                                                                                   datetime="2017-07-11T03:25:16+00:00">July 11, 2017</time></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>
+{% endblock readAlso %}

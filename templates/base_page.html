@@ -1,0 +1,878 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% block bootstrap-css %}{% endblock %}
+    <link rel="stylesheet" href="{% static 'css/main_homepage.css' %}">
+
+
+    <script src="{% static 'js/html5.js' %}"></script>
+
+
+    {% block infinite-scroll %}{% endblock %}
+
+
+    <title>{% block title %}{% endblock %} Deedews | डीड्यूज</title>
+    <link rel='dns-prefetch' href='//fonts.googleapis.com'/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" id="penci-fonts-css"
+          href="//fonts.googleapis.com/css?family=PT+Serif%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7CPlayfair+Display+SC%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7CMontserrat%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7COpen+Sans%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%26subset%3Dcyrillic%2Ccyrillic-ext%2Cgreek%2Cgreek-ext%2Clatin-ext&#038;ver=1.0"
+          type="text/css" media="all">
+    <noscript>
+        <link id="penci-fonts-css" rel="stylesheet"
+              href="//fonts.googleapis.com/css?family=PT+Serif%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7CPlayfair+Display+SC%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7CMontserrat%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%7COpen+Sans%3A300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C800%2C800italic%26subset%3Dcyrillic%2Ccyrillic-ext%2Cgreek%2Cgreek-ext%2Clatin-ext&#038;ver=1.0">
+    </noscript>
+    <noscript>
+        <link id="penci-font-awesomeold-css" rel="stylesheet"
+              href="{% static 'css/font-awsome.swap.min.css' %}">
+    </noscript>
+    <noscript>
+        <link id="penci-font-iconmoon-css" rel="stylesheet" href="{% static 'css/iconmoon.swap.css' %}">
+    </noscript>
+    <script type='text/javascript'
+            src="{% static 'js/jquery/jquery.js' %}"></script>
+    <!-- FAVICON AND APPLE TOUCH -->
+    <link rel="shortcut icon" href="{% static 'images/logo/d.png' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/logo/d.png' %}">
+    <meta name="msapplication-TileImage" content="{% static 'images/logo/d.png' %}">
+    <meta name="msapplication-TileColor" content="#6270ff">
+    <meta name="theme-color" content="#6270ff">
+
+    <style>
+        .logo-nav:hover{
+        color:blue
+        }
+        .sub-menu{
+        width:170px;
+        }
+        .alert-error{
+            background-color:#FF9191;
+        }
+
+        .logo-top{
+            transition: transform .2s; /* Animation */
+            opacity: 0.7;
+            -webkit-filter: grayscale(40%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(40%);
+        }
+        .logo-top:hover{
+            opacity: 4.0;
+            -webkit-filter: grayscale(0%); /* Safari 6.0 - 9.0 */
+            filter: grayscale(0%);
+        }
+
+        .logo-english{
+            transform: scale(1.09);
+        }
+        .logo-hindi{
+            opacity: 0.2;
+        }
+
+        {% block style %}{% endblock %}
+
+
+
+    </style>
+</head>
+<body class="home blog"><a id="close-sidebar-nav" class="header-3"><i class="fa fa-close"></i></a>
+<nav id="sidebar-nav" class="header-3" role="navigation">
+    <div id="sidebar-nav-logo"><a href="fdasdad.pencidesign.com/soledad-magazine/"><img class="penci-lazy"
+                                                                                        src="{% static 'images/logo/d.png' %}" style="width:50%; height:50%"
+                                                                                        data-src="{% static 'images/logo/d.png' %}"
+                                                                                        alt="Deedews logo"/></a>
+    </div>
+    <div class="header-social sidebar-nav-social">
+        <div class="inner-header-social"><a href="https://www.facebook.com/PenciDesign" rel="nofollow"
+                                            target="_blank"><i class="fa fa-facebook"></i></a> <a href="#"
+                                                                                                  rel="nofollow"
+                                                                                                  target="_blank"><i
+                class="fa fa-twitter"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-google-plus"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-instagram"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-linkedin"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-youtube-play"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-snapchat-ghost"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                class="fa fa-rss"></i></a></div>
+    </div>
+    <ul id="menu-menu-1" class="menu">
+        <li id="menu-item-1276"
+            class="megamenu menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home current-menu-ancestor menu-item-has-children menu-item-1276">
+            <a>Homes</a>
+            <ul class="sub-menu">
+                <li id="menu-item-1277"
+                    class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1277">
+                    <a href="#">Hommeie</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1223"
+                            class="featured-new menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-1223">
+                            <a href="{% url 'homepage' %}">
+                                Deedews English</a></li>
+                        <li id="menu-item-1347"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1347"><a
+                                href="{% url 'homepage-h' %}">डीड्यूस हिंदी</a></li>
+                        <li id="menu-item-1222"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1222"><a
+                                href="{% url 'about' %}">About us</a></li>
+                        <li id="menu-item-1212"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1210"><a
+                                href="{% url 'contact' %}">Contact us</a></li>
+                        <li id="menu-item-1211"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1210"><a
+                                href="{% url 'teams' %}">Team</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li id="menu-item-1451"
+            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1451"><a
+                href="#">Lifestyle</a>
+            <ul class="sub-menu">
+                <li id="menu-item-1478"
+                    class="featured-new menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1478">
+                    <a href="#">Post Templates</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1479"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1479"><a
+                                href="fdasdad.pencidesign.com/soledad-magazine/holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/?single_style=style-1&#038;body=boxed-none">Template
+                            Style 1</a></li>
+                        <li id="menu-item-1480"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1480"><a
+                                href="fdasdad.pencidesign.com/soledad-magazine/holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/?single_style=style-2&#038;body=boxed-none">Template
+                            Style 2</a></li>
+                    </ul>
+                </li>
+                <li id="menu-item-1452"
+                    class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                    <a href="#">Headers</a>
+                    <ul class="sub-menu">
+                        <li id="menu-item-1453"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1453"><a
+                                href="fdasdad.pencidesign.com/soledad-magazine/?header=header-1">Header Style
+                            1</a></li>
+                        <li id="menu-item-1454"
+                            class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1454"><a
+                                href="fdasdad.pencidesign.com/soledad-magazine/?header=header-2">Header Style
+                            2</a></li>
+                    </ul>
+                </li>
+                <li id="menu-item-1473" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1473">
+                    <a href="fdasdad.pencidesign.com/soledad-magazine/?menu=menu-style-2">Menu Item Style 2</a>
+                </li>
+
+            </ul>
+        </li>
+
+        <li class="megamenu menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-home current-menu-ancestor menu-item-has-children menu-item-1276">
+            <a href="fdasdad.pencidesign.com/soledad-magazine/">Settings</a>
+            <ul class="sub-menu">
+                <li class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-1277">
+                    <ul class="sub-menu">
+                        {% if user.is_authenticated %}
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1347"><a
+                                href="{% url 'profile' %}">Profile</a></li>
+                        {% else %}
+                        <li class="featured-new menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-1223">
+                            <a href="{% url 'login' %}">Login</a>
+                        </li>
+                        <li class="featured-new menu-item menu-item-type-custom menu-item-object-custom current-menu-item menu-item-1223">
+                            <a href="{% url 'signup' %}">Signup</a>
+                        </li>
+                        {% endif %}
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1222"><a
+                                href="#">Team</a></li>
+                        {% if user.is_authenticated %}
+                        <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1210"><a
+                                href="{% url 'logout' %}">Logout</a></li>
+                        {% endif %}
+                    </ul>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</nav>
+<div class="wrapper-boxed header-style-header-3">
+    <div class="penci-top-bar topbar-menu">
+        <div class="container">
+            <div class="penci-headline" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
+                <ul id="menu-top-bar-menu" class="penci-topbar-menu">
+                    <li id="menu-item-1051"
+                        class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1051">
+                        <a href="#">Features</a>
+                        <ul class="sub-menu">
+                            <li id="menu-item-1178"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1178"><a
+                                    href="#">Gallery</a></li>
+                            <li id="menu-item-1179"
+                                class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1179"><a
+                                    href="#">Portfolio
+                                3 Columns</a></li>
+                        </ul>
+                    </li>
+                    <li id="menu-item-824"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-824"><a
+                            href="{% url 'about' %}">About</a></li>
+                    <li id="menu-item-825"
+                        class="menu-item menu-item-type-post_type menu-item-object-page menu-item-825"><a
+                            href="{% url 'contact' %}">Contact Info</a>
+                    </li>
+                </ul>
+                <div class="penci-topbar-social">
+                    <div class="inner-header-social"><a href="https://www.facebook.com/PenciDesign" rel="nofollow"
+                                                        target="_blank"><i class="fa fa-facebook"></i></a> <a href="#"
+                                                                                                              rel="nofollow"
+                                                                                                              target="_blank"><i
+                            class="fa fa-twitter"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-google-plus"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-instagram"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-linkedin"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-youtube-play"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-snapchat-ghost"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-rss"></i></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header id="header" class="header-header-3" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+        <nav id="navigation" class="header-layout-bottom menu-style-2 header-6 menu-item-padding" role="navigation"
+             itemscope itemtype="http://schema.org/SiteNavigationElement">
+            <div class="container">
+                <div class="button-menu-mobile header-6"><i class="fa fa-bars"></i></div>
+                <!--                <li>-->
+                <!--                </li>-->
+                <!--                <li>-->
+                <!--                </li>-->
+                <div id="logo" style="margin-top:13px;">
+                    <h1 class="logo-nav" style="font-size:25px; float:left"><a href="{% url 'homepage' %}">
+                        <img class="logo-english logo-top" style="width:90px; margin-top:4px; height:40px"
+                             src="{% static 'images/logo/deedews-en.png' %}">
+                        <!--                        <span>Deedews</span>-->
+                    </a>
+                    </h1>
+                    <h1 class="logo-nav" style="font-size:25px; float:left; margin-top:-5px">
+
+                        <img style="width:16px; margin-left:12px; margin-right:5px; object-fit:cover; height:50px"
+                             src="{% static 'images/logo/kalam.png' %}">
+                        <!--                        <span>|डीड्यूज</span>-->
+
+                    </h1>
+                    <h1 class="logo-nav" style="float:left; margin-top:-3px"><a
+                            href="{% url 'homepage-h' %}">
+                        <img class="logo-hindi logo-top"
+                             style="width:90px; margin-left:4px; margin-top:0px; height:54px"
+                             src="{% static 'images/logo/deedews-hi.png' %}">
+                        <!--                        <span>|डीड्यूज</span>-->
+                    </a>
+                    </h1>
+                </div>
+
+                <ul id="menu-menu-2" class="menu">
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1451">
+                        <a>Blog</a>
+                        <ul class="sub-menu">
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                                <a href="{% url 'homepage' %}">Deedews English</a>
+                            </li>
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                                <a href="{% url 'homepage-h' %}">डीड्यूस हिंदी</a>
+                            </li>
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                                <a href="{% url 'about' %}">About us</a>
+                            </li>
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                                <a href="{% url 'contact' %}">Contact us</a>
+                            </li>
+
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1452">
+                                <a href="{% url 'teams' %}">Teams</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom penci-mega-menu menu-item-1317">
+                        <a href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/">Life Style</a>
+                        <ul class="sub-menu">
+                            <li class="menu-item-0">
+                                <div class="penci-megamenu">
+                                    <div class="penci-mega-child-categories"><a class="mega-cat-child"
+                                                                                href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/business/"
+                                                                                data-id="penci-mega-91"><span>Business</span></a>
+                                        <a class="mega-cat-child"
+                                           href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/fashion/"
+                                           data-id="penci-mega-90"><span>Fashion</span></a> <a class="mega-cat-child"
+                                                                                               href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/food/"
+                                                                                               data-id="penci-mega-89"><span>Food</span></a>
+                                        <a class="mega-cat-child cat-active all-style"
+                                           href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/"
+                                           data-id="penci-mega-88"><span>All</span></a></div>
+                                    <div class="penci-content-megamenu">
+                                        <div class="penci-mega-latest-posts col-mn-4 mega-row-1">
+                                            <div class="penci-mega-row penci-mega-91">
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/business/">Business</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="fdasmax.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/coffeeshop-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/this-flagship-coffee-shop-is-about-to-disappear-from-the-bullring/"
+                                                           title="This flagship coffee shop is about to disappear from the Bullring"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/this-flagship-coffee-shop-is-about-to-disappear-from-the-bullring/"
+                                                            title="This flagship coffee shop is about to disappear from the Bullring">This
+                                                        flagship coffee shop is about to disappear&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:25:33+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/business/">Business</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/business-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/5-interview-questions-you-should-always-be-prepared-to-answer/"
+                                                           title="5 Interview Questions You Should Always Be Prepared To Answer"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/5-interview-questions-you-should-always-be-prepared-to-answer/"
+                                                            title="5 Interview Questions You Should Always Be Prepared To Answer">5
+                                                        Interview Questions You Should Always Be Prepared&#8230;</a>
+                                                    </h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:24:44+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/business/">Business</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/startup-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/startups-the-newest-companies-that-could-change-the-world/"
+                                                           title="Startups &#8211; The newest companies that could change the world"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/startups-the-newest-companies-that-could-change-the-world/"
+                                                            title="Startups &#8211; The newest companies that could change the world">Startups
+                                                        &#8211; The newest companies that could change&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:22:46+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/business/">Business</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/business-2-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/a-ski-town-greenhouse-takes-local-produce-to-another-level/"
+                                                           title="A Ski Town Greenhouse Takes Local Produce to Another Level"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/a-ski-town-greenhouse-takes-local-produce-to-another-level/"
+                                                            title="A Ski Town Greenhouse Takes Local Produce to Another Level">A
+                                                        Ski Town Greenhouse Takes Local Produce to&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:20:28+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="penci-mega-row penci-mega-90">
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/fashion/">Fashion</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured2-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/"
+                                                           title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/"
+                                                            title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion">The
+                                                        Head of Design at Ikea on “Sampling”&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:25:16+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/fashion/">Fashion</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/fitness-couple-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/is-fitness-fashion-creating-a-barrier-to-getting-exercise/"
+                                                           title="Is fitness fashion creating a barrier to getting exercise?"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/is-fitness-fashion-creating-a-barrier-to-getting-exercise/"
+                                                            title="Is fitness fashion creating a barrier to getting exercise?">Is
+                                                        fitness fashion creating a barrier to getting&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:24:10+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/fashion/">Fashion</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/summerfashion-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/why-its-time-to-embrace-unflattering-fashion-this-summer/"
+                                                           title="Why it&#8217;s time to embrace &#8216;unflattering&#8217; fashion this summer"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/why-its-time-to-embrace-unflattering-fashion-this-summer/"
+                                                            title="Why it&#8217;s time to embrace &#8216;unflattering&#8217; fashion this summer">Why
+                                                        it&#8217;s time to embrace &#8216;unflattering&#8217; fashion
+                                                        this&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:22:01+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/fashion/">Fashion</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/fashion-kids-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/suri-cruises-city-cab-style-is-all-about-girly-girl-style/"
+                                                           title="Suri Cruise’s City Cab Style Is All About Girly-Girl Style"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/suri-cruises-city-cab-style-is-all-about-girly-girl-style/"
+                                                            title="Suri Cruise’s City Cab Style Is All About Girly-Girl Style">Suri
+                                                        Cruise’s City Cab Style Is All About&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:21:42+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="penci-mega-row penci-mega-89">
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/food/">Food</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/urbanmarket-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/the-urban-farmers-battling-bangalores-concrete-jungle/"
+                                                           title="The urban farmers battling Bangalore&#8217;s concrete jungle"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/the-urban-farmers-battling-bangalores-concrete-jungle/"
+                                                            title="The urban farmers battling Bangalore&#8217;s concrete jungle">The
+                                                        urban farmers battling Bangalore&#8217;s concrete jungle</a>
+                                                    </h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:24:59+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/food/">Food</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/chinatown-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/how-to-find-best-foods-in-london-china-town-at-night/"
+                                                           title="How to find Best Foods in London China Town at night"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/how-to-find-best-foods-in-london-china-town-at-night/"
+                                                            title="How to find Best Foods in London China Town at night">How
+                                                        to find Best Foods in London China&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:23:32+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/food/">Food</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/food-featured-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/25-reasons-to-visit-marylands-eastern-shore-now/"
+                                                           title="25 Reasons to Visit Maryland’s Eastern Shore Now"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/25-reasons-to-visit-marylands-eastern-shore-now/"
+                                                            title="25 Reasons to Visit Maryland’s Eastern Shore Now">25
+                                                        Reasons to Visit Maryland’s Eastern Shore Now</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:22:18+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/food/">Food</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/foodtruck-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/snowday-food-truck-gives-incarcerated-youth-a-second-chance/"
+                                                           title="Snowday Food Truck Gives Incarcerated Youth a Second Chance"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/snowday-food-truck-gives-incarcerated-youth-a-second-chance/"
+                                                            title="Snowday Food Truck Gives Incarcerated Youth a Second Chance">Snowday
+                                                        Food Truck Gives Incarcerated Youth a Second&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:18:44+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="penci-mega-row penci-mega-88 row-active">
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/">Life Style</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/coffeeshop-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/this-flagship-coffee-shop-is-about-to-disappear-from-the-bullring/"
+                                                           title="This flagship coffee shop is about to disappear from the Bullring"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/this-flagship-coffee-shop-is-about-to-disappear-from-the-bullring/"
+                                                            title="This flagship coffee shop is about to disappear from the Bullring">This
+                                                        flagship coffee shop is about to disappear&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:25:33+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/">Life Style</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/featured2-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/"
+                                                           title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/the-head-of-design-at-ikea-on-sampling-versus-stealing-in-fashion/"
+                                                            title="The Head of Design at Ikea on “Sampling” Versus Stealing in Fashion">The
+                                                        Head of Design at Ikea on “Sampling”&#8230;</a></h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:25:16+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/">Life Style</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/urbanmarket-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/the-urban-farmers-battling-bangalores-concrete-jungle/"
+                                                           title="The urban farmers battling Bangalore&#8217;s concrete jungle"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/the-urban-farmers-battling-bangalores-concrete-jungle/"
+                                                            title="The urban farmers battling Bangalore&#8217;s concrete jungle">The
+                                                        urban farmers battling Bangalore&#8217;s concrete jungle</a>
+                                                    </h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:24:59+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div class="penci-mega-post">
+                                                    <div class="penci-mega-thumbnail"><span class="mega-cat-name"> <a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/category/life-style/">Life Style</a> </span>
+                                                        <a class="penci-image-holder penci-lazy"
+                                                           data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/business-585x390.jpg"
+                                                           href="fdasdad.pencidesign.com/soledad-magazine/5-interview-questions-you-should-always-be-prepared-to-answer/"
+                                                           title="5 Interview Questions You Should Always Be Prepared To Answer"> </a>
+                                                    </div>
+                                                    <div class="penci-mega-meta"><h3 class="post-mega-title"><a
+                                                            href="fdasdad.pencidesign.com/soledad-magazine/5-interview-questions-you-should-always-be-prepared-to-answer/"
+                                                            title="5 Interview Questions You Should Always Be Prepared To Answer">5
+                                                        Interview Questions You Should Always Be Prepared&#8230;</a>
+                                                    </h3>
+                                                        <p class="penci-mega-date">
+                                                            <time class="entry-date published"
+                                                                  datetime="2017-07-11T03:24:44+00:00">July 11, 2017
+                                                            </time>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-1260">
+                        <a href="#">Settings</a>
+                        <ul class="sub-menu">
+
+                            {% if user.is_authenticated %}
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1263"><a
+                                    href="fdasdad.pencidesign.com/soledad-magazine/portfolio-with-sidebar/">Profile</a>
+                            </li>
+                            {% else %}
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1261"><a
+                                    href="{% url 'login' %}">Login</a></li>
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1262"><a
+                                    href="{% url 'signup' %}">Signup</a></li>
+                            {% endif %}
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1319"><a
+                                    href="#">Team</a></li>
+                            {% if user.is_authenticated %}
+                            <li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1320"><a
+                                    href="{% url 'logout' %}">Logout</a></li>
+                            {% endif %}
+                        </ul>
+                    </li>
+
+
+                </ul>
+
+                <div id="top-search"><a class="search-click"><i class="fa fa-search"></i></a>
+                    <div class="show-search">
+                        <form role="search" method="get" id="searchform"
+                              action="http://soledad.pencidesign.com/soledad-magazine/">
+                            <div><input type="text" class="search-input" placeholder="Type and hit enter..." name="s"
+                                        id="s"/></div>
+                        </form>
+                        <a class="search-click close-search"><i class="fa fa-close"></i></a></div>
+                </div>
+
+
+            </div>
+
+        </nav>
+
+        {% for message in messages %}
+        <div class="container">
+            <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+                <strong>{{message}}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+        {% endfor %}
+
+    </header>
+
+    {% block carousal %}{% endblock %}
+
+    <div class="container penci_sidebar right-sidebar">
+        <div id="main" class="penci-layout-magazine-1 penci-main-sticky-sidebar">
+            {% block body %}{% endblock %}
+        </div>
+        {% block sidebar %}{% endblock %}
+
+    </div>
+    <div class="clear-footer"></div>
+    <div id="widget-area">
+        <div class="container">
+            <div class="footer-widget-wrapper footer-widget-style-1">
+                <aside id="text-2" class="widget widget_text"><h4 class="widget-title penci-border-arrow"><span
+                        class="inner-arrow">About Deedews</span></h4>
+                    <div class="textwidget"><p><img
+                            src="{% static 'images/logo/deedews-en.png' %}"/>
+                    </p>
+                        <p>Deedews, a blogging website, we have written few collection of best articles. Make sure to
+                        read them at <a style="color:skyblue" href="{% url 'homepage' %}">deedews.com</a>. For Hindi Articles, <a style="color:skyblue" href="{% url 'homepage-h' %}">click here</a>.</p></div>
+                </aside>
+                <aside id="penci_social_widget-2" class="widget penci_social_widget">
+                    <div class="widget-social pc_alignleft remove-circle"><a href="https://www.facebook.com/PenciDesign"
+                                                                             rel="nofollow" target="_blank"><i
+                            class="fa fa-facebook" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Facebook</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-twitter" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Twitter</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-google-plus" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Google +</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-instagram" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Instagram</span></a> <a href="" rel="nofollow" target="_blank"><i
+                            class="fa fa-pinterest" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Pinterest</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-youtube-play" style="font-size: 18px"></i><span
+                            style="font-size: 13px">Youtube</span></a> <a href="#" rel="nofollow" target="_blank"><i
+                            class="fa fa-snapchat-ghost" style="font-size: 18px"></i><span style="font-size: 13px">Snapchat</span></a>
+                    </div>
+                </aside>
+            </div>
+            <div class="footer-widget-wrapper footer-widget-style-1">
+                <aside id="penci_popular_news_widget-2" class="widget penci_popular_news_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Popular in Hindi</span></h4>
+                    <ul id="penci-popularwg-6574" class="side-newsfeed display-order-numbers">
+
+                        {% if common.3.0.count == 0 %}
+                        <span style="color:white">No post yet</span>
+                        {% endif %}
+                        {% if common.3.0.count > 0 %}
+                        {% for post in common.3.0 %}
+                        {% if forloop.counter < 4 %}
+                        <li class="penci-feed"><span class="order-border-number"> <span
+                                class="number-post">1</span> </span>
+                            <div class="side-item">
+                                <div class="side-image">
+                                    {% if post.post_image %}
+                                    <a class="penci-image-holder penci-lazy small-fix-size"
+                                       rel="bookmark"
+                                       data-src="{{post.post_iamge.url}}"
+                                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                       title="{{post.title_hindi}}"></a>
+                                    {% else %}
+                                    <a class="penci-image-holder penci-lazy small-fix-size"
+                                       rel="bookmark"
+                                       data-src="{% static 'images/default-post.png' %}"
+                                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                       title="{{post.title_hindi}}"></a>
+                                    {% endif %}
+                                </div>
+                                <div class="side-item-text"><h4 class="side-title-post"><a
+                                        href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                                        rel="bookmark"
+                                        title="{{post.title_hindi}}">
+                                    {{post.title_hindi|truncatechars:'100'}}
+                                </a></h4> <span class="side-item-meta"><time class="entry-date published"
+                                                                     datetime="{{post.timestamp}}">{{post.timestamp|date:'N j o'}}</time></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </aside>
+            </div>
+            <div class="footer-widget-wrapper footer-widget-style-1 last">
+                <aside id="penci_latest_news_widget-2" class="widget penci_latest_news_widget"><h4
+                        class="widget-title penci-border-arrow"><span class="inner-arrow">Popular in English</span>
+                </h4>
+                    <ul id="penci-latestwg-3334" class="side-newsfeed">
+                        {% if common.3.1.count == 0 %}
+                        <span style="color:white">No post yet</span>
+                        {% endif %}
+                        {% if common.3.1.count > 0 %}
+                        {% for post in common.3.1 %}
+                        {% if forloop.counter < 4 %}
+                        <li class="penci-feed">
+                            <div class="side-item">
+                                <div class="side-image"><a class="penci-image-holder penci-lazy small-fix-size"
+                                                           rel="bookmark"
+                                                           data-src="{{post.post_image.url}}"
+                                                           href="{% url 'single-article' post.category post.slug %}"
+                                                           title="{{post.title}}"></a>
+                                </div>
+                                <div class="side-item-text"><h4 class="side-title-post"><a
+                                        href="fdasdad.pencidesign.com/soledad-magazine/holiday-travel-guide-europes-hidden-coasts-the-deep-mani-greece/"
+                                        rel="bookmark"
+                                        title="{{post.title}}">{{post.title_hindi|truncatechars:'100'}}</a></h4> <span
+                                        class="side-item-meta"><time class="entry-date published"
+                                                                     datetime="{{post.timestamp}}">{{post.timestamp|date:'N j o'}}</time></span>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </ul>
+                </aside>
+            </div>
+        </div>
+    </div>
+    <footer id="footer-section" class="penci-footer-social-media penci-lazy footer-social-remove-circle" itemscope
+            itemtype="{% url 'homepage' %}">
+        <div class="container">
+            <div class="penci-flag-rlt-popup"></div>
+            <div class="footer-logo-copyright footer-not-logo footer-not-gotop">
+                <div id="footer-copyright"><p>All Right Reserved. <a href="{% url 'homepage' %}">Deedews.com</a>
+                </p></div>
+            </div>
+            <div class="penci-go-to-top-floating"><i class="fa fa-angle-up"></i></div>
+        </div>
+    </footer>
+</div>
+<div class="penci-menu-hbg-overlay"></div>
+<div class="penci-menu-hbg penci-vernav-hide penci-menu-hbg-left">
+    <div class="penci-menu-hbg-inner"><a id="penci-close-hbg"><i class="fa fa-close"></i></a>
+        <div class="penci-hbg-header">
+            <div class="penci-hbg-logo site-branding"><a href="fdasdad.pencidesign.com/soledad-magazine/"><img
+                    class="penci-lazy"
+                    src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/themes/soledad/images/penci-holder.png"
+                    data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/maglogo@2x.png"
+                    alt="Deedews"/></a></div>
+        </div>
+        <div class="penci-hbg-footer">
+            <div class="header-social sidebar-nav-social penci-hbg-social-style-1">
+                <div class="inner-header-social"><a href="https://www.facebook.com/PenciDesign" rel="nofollow"
+                                                    target="_blank"><i class="fa fa-facebook"></i></a> <a href="#"
+                                                                                                          rel="nofollow"
+                                                                                                          target="_blank"><i
+                        class="fa fa-twitter"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-google-plus"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-instagram"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-linkedin"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-youtube-play"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-snapchat-ghost"></i></a> <a href="#" rel="nofollow" target="_blank"><i
+                        class="fa fa-rss"></i></a></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block readAlso %} {% endblock %}
+
+<div id="fb-root"></div>
+
+<script src="{% static 'js/apisettings.js' %}"></script>
+<!--<script type='text/javascript'>-->
+<!--    var wpcf7 = {"apiSettings":{"root":"http:\/\/soledad.pencidesign.com\/soledad-magazine\/wp-json\/contact-form-7\/v1","namespace":"contact-form-7\/v1"},"recaptcha":{"messages":{"empty":"Please verify that you are not a robot."}},"cached":"1"};-->
+<!--</script>-->
+
+<!--THIS NEED TO BE DONE, this is auto load more infinite.min.js scroll-->
+<!--<script type='text/javascript'>-->
+<!--    var ajax_var_more = {"url":"{% static 'js/adminAjax.js' %}","nonce":"385f785012"};-->
+<!--</script>-->
+<!--<script type='text/javascript'>-->
+<!--    var ajax_var = {"url":"{% static 'js/adminAjax.js' %}","nonce":"385f785012"};-->
+<!--</script>-->
+<!--<script type='text/javascript'>-->
+<!--    var ajax_var_more = {"url":"{% static 'js/adminAjax.js' %}","nonce":"385f785012"};-->
+<!--</script>-->
+
+<script type="text/javascript" src="{% static 'js/jsAutoOptimize.js' %}"></script>
+{% block js %}{% endblock %}
+</body>
+</html>

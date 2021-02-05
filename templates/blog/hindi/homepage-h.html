@@ -1,0 +1,512 @@
+{% extends 'blog/hindi/base.html' %}
+
+{% load static %}
+
+{% block infinite-scroll %}
+<script src="{% static 'js/js-infinite/jquery-3.1.1.min.js' %}"></script>
+<script src="{% static 'js/js-infinite/jquery.waypoints.min.js' %}"></script>
+<script src="{% static 'js/js-infinite/infinite.min.js' %}"></script>
+
+{% endblock %}
+
+
+{% block js %}
+<!--<script src="{% static 'js/jquery/infinite.js' %}"></script>-->
+
+{% endblock %}
+{% block bootstrap-css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"
+        integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
+        crossorigin="anonymous"></script>
+<script src="{% static 'js/art-post.js' %}"></script>
+<link rel="stylesheet" href="{% static 'css/blog-form.css' %}">
+{% block more-css %}{% endblock %}
+<!--<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet"-->
+<!--      type="text/css"/>-->
+<!--<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>-->
+<!--<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>-->
+{% endblock %}
+
+{% block bootstrap-js %}
+
+{% endblock %}
+
+{% block body %}
+<div class="theiaStickySidebar">
+    <section class="home-featured-cat mag-cat-style-1 mb-5">
+
+        {% if user.is_staff %}
+        <div class="penci-border-arrow penci-homepage-title penci-magazine-title style-5 pcalign-left"><h3
+                class="inner-arrow">लेख लिखिए|</h3>
+        </div>
+        <div class="tab">
+            <button class="tablinks active" onclick="changeTabs(event, 'post_detail')" id="defaultOpen">टाइटल</button>
+            <button class="tablinks" onclick="changeTabs(event, 'image')"> इमेज</button>
+            <button class="tablinks" onclick="changeTabs(event, 'meta')"> विश्लेषण</button>
+        </div>
+
+        <div style="border-bottom:1px solid lightgrey; border-left:1px solid lightgrey; border-right:1px solid #ccc">
+            <form method="post" action="{% url 'new-article-in-hindi' %}" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div id="post_detail" class="tabcontent" style="border-bottom:0px">
+                    <textarea required style="font-size:15px" class="form-control mt-2" name="title_hindi" rows="2"
+                              placeholder="अपना टाइटल यह लिखे"></textarea>
+                    <textarea required style="font-size:15px" class="form-control mt-2" name="title_english" rows="2"
+                              placeholder="Title in english"></textarea>
+
+                    <div class="row g-3 pt-2">
+                        <div class="col-md-9">
+                            <input type="text" style="font-size:15px" placeholder="हैश टैग" name="tags"
+                                   class="form-control">
+                        </div>
+
+                        <div class="col-md-3">
+                            <select style="font-size:15px" name="category" class="form-select" id="validationDefault04"
+                                    required>
+                                <option disabled>सेलेक्ट केटेगरी</option>
+                                <option value="स्टोरीज">स्टोरीज</option>
+                                <option selected value="एनालिसिस">एनालिसिस</option>
+                                <option value="लाइफस्टाइल">लाइफस्टाइल</option>
+                                <option value="अन्य">अन्य</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-12 pt-2">
+                    <textarea style="font-size:15px" class="form-control"
+                              name="toc" rows="9"
+                              placeholder="टेबल ऑफ़ कंटेंट (ऐच्छिक)"></textarea>
+                    </div>
+
+
+                </div>
+
+                <div id="image" class="tabcontent" style="display:none; border-bottom:0px">
+                    <label id="image-label">
+                        इमेज चुनिए<br/>
+                        <img src="{% static 'images/default-post.png' %}"
+                             id="post_image"
+                             alt="Post Image"/><br/>
+                        <input hidden type="file" name="post_image"
+                               onchange="readURL_pic(this);"/>
+                    </label>
+                    <br/>
+
+                </div>
+
+                <div id="meta" class="tabcontent" style="display:none; border-bottom:0px">
+                    <div class="col-md-12 pt-2">
+            <textarea required style="font-size:15px" id="content-for-article"
+                      class="form-control ckeditor" name="content"
+                      rows="14"
+                      placeholder="आर्टिकल का विश्लेषण यह लिखे।"></textarea>
+                    </div>
+
+                </div>
+                <div class="container">
+                    <div class="pb-2 col-md-12 pt-1">
+                        <input class="btn btn-primary" type="submit" value="पब्लिश">
+                    </div>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+
+    </section>
+
+    <!--    stories -->
+    <section class="home-featured-cat mag-cat-style-11">
+        <div class="penci-border-arrow penci-homepage-title penci-magazine-title style-5 pcalign-left"><h3
+                class="inner-arrow"><a
+                href="fdasdad.pencidesign.com/soledad-magazine/category/videos/">शॉर्ट स्टोरीज़</a></h3>
+        </div>
+        <div class="home-featured-cat-content style-11">
+
+            {% if stories.count > 0 %}
+            {% for post in stories %}
+            {% if forloop.counter < 5 %}
+            <div class="mag-photo">
+                <div class="magcat-thumb hentry"><a
+                        href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                        class="mag-overlay-photo"></a>
+                    {% if post.post_image %}
+                    <a class="penci-image-holder penci-lazy"
+                      data-src="{{post.post_image.url}}"
+                      href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                      title="{{post.title_hindi}}">
+                    </a>
+                    {% else %}
+                    <a class="penci-image-holder penci-lazy"
+                      data-src="{{post.post_image.url}}"
+                      href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                      title="{{post.title_hindi}}">
+                    </a>
+                    {% endif %}
+
+                    <div class="magcat-detail"><h3 class="magcat-titlte entry-title">
+                        <a href="{% url 'single-article-hindi' post.category_english post.slug %}">
+                        {{post.title_hindi}}</a></h3>
+
+                        <h3 class="magcat-titlte entry-title">
+                        <a href="{% url 'single-article-hindi' post.category_english post.slug %}">
+                        {{post.category_english}}</a></h3>
+
+                        <div class="grid-post-box-meta mag-meta"><span class="author vcard"><a
+                                class="url fn n"
+                                href="{% url 'single-article-hindi' post.category_english post.slug %}">Isaac Taylor</a></span>
+                            <span><time class="entry-date published"
+                                        datetime="2017-07-11T03:26:25+00:00">{{post.timestamp|date:'N j o'}}</time></span>
+                        </div>
+                        <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                                class="url fn n"
+                                href="">Isaac Taylor</a></span>
+                            <time class="entry-date published" datetime="{{post.timestamp}}">{{post.timestamp|date:'N j o'}}
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+
+            {% if stories.count > 4 %}
+            <div style="float:right"><a href="{% url 'hindi-article-by-category' 'stories' %}">More</a></div>
+            {% else %}
+            <p>अभी कोई कहानिया नहीं लिखी गई है !</p>
+            {% endif %}
+        </div>
+
+    </section>
+
+<!--analysis-->
+    <section class="home-featured-cat mag-cat-style-1">
+        <div class="penci-border-arrow penci-homepage-title penci-magazine-title style-5 pcalign-left"><h3
+                class="inner-arrow"><a
+                href="{% url 'hindi-article-by-category' 'sports' %}">एनालिसिस</a></h3>
+        </div>
+        <div class="home-featured-cat-content style-1">
+
+
+            {% if analysis.count > 0 %}
+            {% for post in analysis %}
+            {% if forloop.counter == 1 %}
+            <div class="cat-left">
+                <div class="mag-post-box hentry first-post">
+                    <div class="magcat-thumb">
+                        {% if post.post_image %}
+                        <a class="penci-image-holder penci-lazy"
+                           data-src="{{post.post_image.url}}"
+                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                           title="{{post.title_hindi}}">
+                        </a>
+                        {% else %}
+                        <a class="penci-image-holder penci-lazy"
+                           data-src="{% static 'images/default-post.png' %}"
+                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                           title="{{post.title_hindi}}">
+                        </a>
+                        {% endif %}
+
+                    </div>
+                    <div class="magcat-detail">
+                        <div class="mag-header"><h3 class="magcat-titlte entry-title"><a
+                                href="{% url 'single-article-hindi' post.category_english post.slug %}">{{post.title_hindi}}</a></h3>
+                            <div class="grid-post-box-meta mag-meta"><span
+                                    class="author-italic author vcard">by <a class="url fn n"
+                                                                             href="#">Isaac Taylor</a></span>
+                                <span><time class="entry-date published"
+                                            datetime="2017-07-11T03:26:25+00:00">{{post.timestamp|date:"N j o"}}</time></span>
+                            </div>
+                        </div>
+                        <div class="mag-excerpt entry-content"><p>{{post.content|safe|truncatechars:'120'}}</p></div>
+                        <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                                class="url fn n"
+                                href="#">Isaac Taylor</a></span>
+                            <time class="entry-date published" datetime="2017-07-11T03:26:25+00:00">
+                                {{post.timestamp|date:"N j o"}}
+                            </time>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+
+
+            <div class="cat-right">
+                {% if analysis.count > 1 %}
+                {% for post in analysis %}
+                {% if forloop.counter > 1 and forloop.counter < 6 %}
+                <div class="mag-post-box hentry">
+                    <div class="magcat-thumb">
+                        {% if post.post_image %}
+                        <a class="penci-image-holder penci-lazy small-fix-size"
+                           data-src="{{post.post_image.url}}"
+                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                           title="{{post.title_hindi}}">
+                        </a>
+                        {% else %}
+                        <a class="penci-image-holder penci-lazy small-fix-size"
+                           data-src="{% static 'images/default-post.png' %}"
+                           href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                           title="{{post.title_hindi}}">
+                        </a>
+                        {% endif %}
+                    </div>
+                    <div class="magcat-detail"><h3 class="magcat-titlte entry-title"><a
+                            href="{% url 'single-article-hindi' post.category_english post.slug %}">{{post.title_hindi|truncatechars:'80'}}</a>
+                    </h3>
+                        <div class="grid-post-box-meta mag-meta"><span><time class="entry-date published">{{post.timestamp|date:"N j o"}}</time></span>
+                        </div>
+                        <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                                class="url fn n"
+                                href="#">Isaac Taylor</a></span>
+                            <time class="entry-date published" datetime="2017-07-11T03:24:10+00:00">
+                                {{post.timestamp|date:"N j o"}}
+                            </time>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% if analysis.count > 5 %}
+                <div style="float:right"><a href="{% url 'hindi-article-by-category' 'analysis' %}">More</a></div>
+                {% endif %}
+
+                {% else %}
+                <p>अभी कोई अनॅलिसिस लेख नहीं लिखे गई है!</p>
+                {% endif %}
+
+
+            </div>
+        </div>
+    </section>
+
+    <!--    Lifestyle-->
+    <section class="home-featured-cat mag-cat-style-10">
+        <div class="penci-border-arrow penci-homepage-title penci-magazine-title style-5 pcalign-left"><h3
+                class="inner-arrow"><a
+                href="{% url 'hindi-article-by-category' 'lifestyle' %}">लाइफस्टाइल</a></h3>
+        </div>
+        <div class="home-featured-cat-content style-10">
+
+
+            {% for post in lifestyle %}
+            <!--        FORLOOP.counter starts from 1-->
+            {% if forloop.counter < 3 %}
+
+            <div class="mag-post-box hentry first-post">
+                <div class="magcat-thumb">
+
+                    {% if post.post_image %}
+                    <a class="penci-image-holder penci-lazy"
+                       data-src="{{post.post_image.url}}"
+                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                       title="{{post.title_hindi}}">
+                    </a>
+                    {% else %}
+                    <a class="penci-image-holder penci-lazy"
+                       data-src="{% static 'images/default-post.png' %}"
+                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                       title="{{post.title_hindi}}">
+                    </a>
+                    {% endif %}
+                </div>
+                <div class="magcat-detail">
+                    <div class="mag-header"><h3 class="magcat-titlte entry-title"><a
+                            href="{% url 'single-article-hindi' post.category_english post.slug %}">If
+                        {{post.title_hindi|truncatechars:'65'}}</a></h3>
+                        <div class="grid-post-box-meta mag-meta"><span class="author-italic author vcard">by <a
+                                class="url fn n"
+                                href="#">{{post.user}}</a></span>
+                            <span><time class="entry-date published"
+                                        datetime="2017-07-11T03:26:07+00:00">{{post.timestamp|date:"N j o"}}</time></span>
+                        </div>
+                    </div>
+                    <div class="mag-excerpt entry-content"><p>{{post.content|safe|truncatechars:'120'}}</p></div>
+                    <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                            class="url fn n"
+                            href="#">{{post.user}}</a></span>
+                        <time class="entry-date published" datetime="2017-07-11T03:26:07+00:00">{{post.timestamp|date:"N
+                            j o"}}
+                        </time>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+
+
+            {% for post in lifestyle %}
+            {% if forloop.counter > 2 and forloop.counter < 9 %}
+            <div class="mag-post-box hentry">
+                <div class="magcat-thumb">
+                    <a class="penci-image-holder penci-lazy small-fix-size"
+                       data-src="{{post.post_image.url}}"
+                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                       title="{{post.title_hindi}}"> </a>
+                </div>
+                <div class="magcat-detail"><h3 class="magcat-titlte entry-title"><a
+                        href="{% url 'single-article-hindi' post.category_english post.slug %}">{{post.title_hindi|truncatechars:'60'}}</a>
+                </h3>
+                    <div class="grid-post-box-meta mag-meta"><span><time class="entry-date published"
+                                                                         datetime="2017-07-11T03:23:02+00:00">{{post.timestamp|date:'N j o'}}</time></span>
+                    </div>
+                    <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                            class="url fn n"
+                            href="#">{{post.user}}</a></span>
+                        <time class="entry-date published" datetime="2017-07-11T03:23:02+00:00">{{post.timestamp|date:'N
+                            j o'}}
+                        </time>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            {% if lifestyle.count == 0 %}
+            <p>अभी कोई लाइफस्टाइल लेख नहीं लिखे गई है!</p>
+            {% elif lifestyle.count > 7 %}
+            <div style="float:right"><a href="{% url 'hindi-article-by-category' 'lifestyle' %}">More</a></div>
+            {% endif %}
+
+        </div>
+
+        <!--    ADS-->
+        <!--    <div class="penci-featured-cat-custom-ads"><a href="#"><img class="penci-lazy"-->
+        <!--                                                                src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/themes/soledad/images/penci2-holder.png"-->
+        <!--                                                                data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/08/banner-home.png"></a>-->
+        <!--    </div>-->
+    </section>
+
+    <div class="penci-border-arrow penci-homepage-title penci-home-latest-posts style-5 pcalign-left"><h3
+            class="inner-arrow">Latest Posts</h3></div>
+    <div class="penci-wrapper-posts-content">
+        <ul class="penci-wrapper-data penci-grid">
+
+            <div class="infinite-container">
+                {% for post in all_articles_by_time %}
+                <li class="infinite-item list-post magazine-layout magazine-1">
+                    <article id="post-908" class="item hentry">
+                        <div class="thumbnail">
+                            {% if post.post_image %}
+                            <a class="penci-image-holder penci-lazy"
+                               data-src="{{post.post_image.url}}"
+                               href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                               title="{{post.title_hindi}}">
+                            </a>
+                            {% else %}
+                            <a class="penci-image-holder penci-lazy"
+                               data-src="{% static 'images/default-post.png' %}"
+                               href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                               title="{{post.title_hindi}}">
+                            </a>
+                            {% endif %}
+                        </div>
+                        <div class="content-list-right">
+                            <div class="header-list-style"><span class="cat">
+                            <a class="penci-cat-name"
+                               href="{% url 'hindi-article-by-category' post.category_english %}"
+                               rel="category tag">{{post.category_english}}
+                            </a></span>
+                                <h2 class="entry-title grid-title"><a
+                                        href="{% url 'single-article-hindi' post.category_english post.slug %}">If
+                                    {{post.title_hindi|truncatechars:'70'}}</a></h2>
+                                <div class="penci-hide-tagupdated"><span
+                                        class="author-italic author vcard">by <a class="url fn n"
+                                                                                 href="fdasdad.pencidesign.com/soledad-magazine/author/magazine/">{{post.user}}</a></span>
+                                    <time class="entry-date published" datetime="2017-07-11T03:26:07+00:00">{{post.timestamp|date:'N j o'}}
+                                    </time>
+                                </div>
+                                <div class="grid-post-box-meta"><span class="author-italic author vcard">by <a
+                                        class="url fn n"
+                                        href="fdasdad.pencidesign.com/soledad-magazine/author/magazine/">{{post.user}}</a></span>
+                                    <span><time class="entry-date published"
+                                                datetime="2017-07-11T03:26:07+00:00">{{post.timestamp|date:'N j o'}}</time></span>
+                                </div>
+                            </div>
+                            <div class="item-content entry-content"><p>{{post.content|safe|truncatechars:'260'}}</p>
+                            </div>
+                        </div>
+                    </article>
+                </li>
+                {% endfor %}
+            </div>
+
+            {% if all_articles_by_time.has_next %}
+            <div><a class="infinite-more-link" href="?page={{ all_articles_by_time.next_page_number }}"> </a></div>
+            {% endif %}
+
+            {% if all_articles_by_time.counter == 0 %}
+            <div>No articles as of now.</div>
+            {% endif %}
+        </ul>
+        <center>
+            <div class="spinner-border"></div>
+        </center>
+        <!--        {% if all_articles_by_time.has_next %}-->
+        <!--        <div class="penci-pagination penci-ajax-more penci-ajax-home penci-ajax-more-scroll"><a-->
+        <!--                class="penci-ajax-more-button" data-mes="Sorry, No more posts" data-layout="magazine-1"-->
+        <!--                data-number="4" data-offset="10"-->
+        <!--                data-from="customize" data-template="sidebar"> <span-->
+        <!--                class="ajax-more-text">Load More Posts</span><span class="ajaxdot"></span><i-->
+        <!--                class="fa fa-refresh"></i> </a></div>-->
+        <!--        {% endif %}-->
+    </div>
+
+</div>
+<script src="{% static 'js/js-infinite/simple-js.js' %}"></script>
+
+{% endblock %}
+
+{% block carousal %}
+<div class="featured-area featured-style-7">
+    <div class="penci-owl-carousel penci-owl-featured-area" data-item="4" data-desktop="4" data-tablet="2"
+         data-tabsmall="1" data-style="style-7" data-auto="true" data-autotime="6000" data-speed="300"
+         data-loop="true">
+
+        {% for post in carousal_post %}
+        <div class="item">
+            <div class="wrapper-item wrapper-item-classess">
+                <div class="penci-item-mag penci-item-1">
+                    {% if post.post_image %}
+                    <a class="penci-image-holder owl-lazy"
+                       data-src="{{post.post_image.url}}"
+                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                       title="{{post.title_hindi}}">
+                    </a>
+                    {% else %}
+                    <a class="penci-image-holder owl-lazy"
+                       data-src="{% static 'images/default-post.png' %}"
+                       href="{% url 'single-article-hindi' post.category_english post.slug %}"
+                       title="{{post.title_hindi}}">
+                    </a>
+                    {% endif %}
+
+                    <div class="penci-slide-overlay penci-slider7-overlay">
+                        <a class="overlay-link"
+                           href="{% url 'single-article-hindi' post.category_english post.slug %}"></a>
+                        <div class="penci-mag-featured-content">
+                            <div class="feat-text slider-hide-date"><h3><a
+                                    title="{{post.title_hindi}}"
+                                    href="{% url 'single-article-hindi' post.category_english post.slug %}">
+                                {{post.title_hindi}}</a></h3></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

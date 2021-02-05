@@ -1,0 +1,102 @@
+{% extends 'base_page.html' %}
+
+{% load static %}
+
+{% block bootstrap-css %}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+{% endblock %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block title %}
+{% endblock %}
+
+{% block bootstrap-js %}
+{% endblock %}
+
+{% block body %}
+<div class="theiaStickySidebar">
+    <div class="container container-single-page penci-breadcrumb">
+        <span><a class="crumb" href="{% url 'homepage' %}">Home</a></span>
+        <i class="fa fa-angle-right"></i>
+        <span>Login</span>
+    </div>
+    <div class="container penci_sidebar right-sidebar">
+        <div id="main" class="penci-main-sticky-sidebar">
+            <div class="theiaStickySidebar">
+                <article id="post-74" class="post-74 page type-page status-publish hentry">
+                    <div class="penci-page-header"><h1 class="entry-title">Log in to explore more!</h1>
+                        <div class="penci-hide-tagupdated"><span class="author-italic author vcard">by <a
+                                class="url fn n" href="../author/admin/index.html">Penci</a></span>
+                            <time class="entry-date published" datetime="2015-05-27T15:45:02+00:00">May 27, 2015</time>
+                        </div>
+                    </div>
+                    <div class="post-entry blockquote-style-2">
+                        <div class="inner-post-entry entry-content">
+                            <div role="form" class="wpcf7" id="wpcf7-f381-p74-o1" lang="en-US" dir="ltr">
+                                <form action="{% url 'login' %}"
+                                      method="post" class="wpcf7-form" novalidate="novalidate">
+                                    {% csrf_token %}
+
+
+                                    <div class="form-group row">
+                                        <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+                                        <div class="col-sm-10">
+                                            <input type="email" name="username" class="form-control" id="inputEmail3"
+                                                   placeholder="Your email">
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                                        <div class="col-sm-10">
+                                            <input type="password" name="password" class="form-control" id="inputPassword3"
+                                                   placeholder="Password">
+                                        </div>
+                                    </div>
+
+                                    <p class="submit">
+                                        <span style="float:left" class="wpcf7-form-control-wrap your-subject"><input
+                                                required type="submit" size="40"
+                                                class="wpcf7-form-control wpcf7-text" aria-invalid="false">
+                                        </span>
+
+                                        <span style="float:left" class="pt-3 wpcf7-form-control-wrap your-subject">
+                                            <a href="#">Forgot password?</a><br>
+                                            <a href="{% url 'signup' %}">Don't have an account?</a>
+
+                                        </span>
+                                    </p>
+
+                                    <!--                                    <p class="submit"><input type="submit" value="Submit"-->
+                                    <!--                                                             class="wpcf7-form-control wpcf7-submit"/></p>-->
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tags-share-box hide-tags page-share has-line">
+                        <div class="post-share"><span class="share-title">Share</span>
+                            <div class="list-posts-share"><a target="_blank" rel="nofollow"
+                                                             href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:8000/contact-us"><i
+                                    class="fa fa-facebook"></i><span class="dt-share">Facebook</span></a><a
+                                    target="_blank" rel="nofollow"
+                                    href="https://twitter.com/intent/tweet?text=Check%20out%20this%20article:%20Contact%20Information%20-%20http://localhost:8000/contact-us"><i
+                                    class="fa fa-twitter"></i><span class="dt-share">Twitter</span></a><a
+                                    target="_blank" rel="nofollow"
+                                    href="https://plus.google.com/share?url=http://localhost:8000/contact-us"><i
+                                    class="fa fa-google-plus"></i><span class="dt-share">Google +</span></a><a
+                                    data-pin-do="none" rel="nofollow noreferrer noopener"
+                                    onclick="var e=document.createElement('script');e.setAttribute('type','text/javascript');e.setAttribute('charset','UTF-8');e.setAttribute('src','../../../assets.pinterest.com/js/pinmarklet2a3b.js?r='+Math.random()*99999999);document.body.appendChild(e);"><i
+                                    class="fa fa-pinterest"></i><span class="dt-share">Pinterest</span></a></div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

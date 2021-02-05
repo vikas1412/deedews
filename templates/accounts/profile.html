@@ -1,0 +1,73 @@
+{% extends 'base_page.html' %}
+
+{% load static %}
+
+
+{% block title %}
+Profile |
+{% endblock %}
+
+{% block body %}
+<div class="theiaStickySidebar">
+
+    <section class="home-featured-cat mag-cat-style-1">
+        <div class="penci-border-arrow penci-homepage-title penci-magazine-title style-5 pcalign-left"><h3
+                class="inner-arrow"><a
+                href="fdasdad.pencidesign.com/soledad-magazine/category/fitness/">Fitness</a></h3>
+        </div>
+        <div class="container penci_sidebar right-sidebar">
+            <div id="main" class="penci-layout-list penci-main-sticky-sidebar">
+                <div class="theiaStickySidebar">
+                    <div class="archive-box">
+                        <div class="title-bar"><span>Category:</span>
+                            <h1>{{this_category}}</h1></div>
+                    </div>
+                    <ul class="penci-wrapper-data penci-grid">
+
+                        {% for article in content_by_category %}
+                        <li class="list-post">
+                            <article id="post-910" class="item hentry">
+                                <div class="thumbnail"><a class="penci-image-holder penci-lazy"
+                                                          data-src="http://max.soledad.pencidesign.com/soledad-magazine/wp-content/uploads/sites/7/2017/07/cardio-585x390.jpg"
+                                                          href="../../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html"
+                                                          title="Fitness Tips | 5 Best Cardio Workout for a Healthy Heart"> </a>
+                                    <a href="../../fitness-tips-5-best-cardio-workout-for-a-healthy-heart/index.html"
+                                       class="icon-post-format"><i class="fa fa-play"></i></a></div>
+                                <div class="content-list-right content-list-center">
+                                    <div class="header-list-style"><span class="cat"><a class="penci-cat-name"
+                                                                                        href="index.html"
+                                                                                        rel="category tag">Fitness</a><a
+                                            class="penci-cat-name" href="../videos/index.html"
+                                            rel="category tag">Videos</a></span>
+                                        <h2 class="entry-title grid-title"><a
+                                                href="{% url 'single-article' article.category article.slug %}">
+                                            {{article.title}}
+                                        </a></h2>
+                                        <div class="penci-hide-tagupdated"><span
+                                                class="author-italic author vcard">by <a
+                                                class="url fn n"
+                                                href="../../author/magazine1/index.html">{{article.username}}</a></span>
+                                            <time class="entry-date published" datetime="2017-07-11T03:26:25+00:00">
+                                                {{article.timestamp|date:"N j o"}}
+                                            </time>
+                                        </div>
+                                        <div class="grid-post-box-meta"><span class="author-italic author vcard">by <a
+                                                class="url fn n"
+                                                href="../../author/magazine1/index.html">Isaac Taylor</a></span> <span><time
+                                                class="entry-date published" datetime="2017-07-11T03:26:25+00:00">{{article.timestamp}}</time></span>
+                                        </div>
+                                    </div>
+                                    <div class="item-content entry-content"><p>{{article.content|truncatechars:"200"}}</p></div>
+                                </div>
+                            </article>
+                        </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock %}
